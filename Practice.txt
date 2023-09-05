@@ -1,0 +1,463 @@
+package com.graph;
+import java.util.*;
+public class DFS_example {
+	private LinkedList<Integer>adjLists[];
+	private boolean visited[];
+	///creating a graph..
+	DFS_example(int ver){
+		adjLists =new LinkedList[ver];
+		visited=new boolean [ver];
+		for(int i=0;i<ver;i++)
+			adjLists[i]=new LinkedList<Integer>();
+	}
+      ///adding edges..
+	void addEdge(int src, int dest) {
+		adjLists[src].add(dest);
+	}
+	///DFS algorithm..
+	void DFS(int ver) {
+		visited[ver]=true;
+		System.out.println(ver + " ");
+		Iterator<Integer>it=adjLists[ver].listIterator();
+		while(it.hasNext()) {
+			int adj=it.next();
+			if(! visited[adj])
+				DFS(adj);	
+		}
+	}
+	//driving method..
+	public static void main(String[]args) {
+		DFS_example g=new DFS_example(4);
+		g.addEdge(0, 1);
+		g.addEdge(0, 2);
+		g.addEdge(1, 2);
+		g.addEdge(2, 3);
+		System.out.println("DFS");
+		g.DFS(2);
+		
+	}
+}
+..................
+package com.practice;
+import java.util.*;
+public class BubbleSort {
+	//1.define bubblesort..
+	 static void bubblesort(int a[]) {
+		 int i,j;
+		 int n=a.length;
+		 for(i=0;i<n-1;i++) 
+			 for(j=0;j<n-i-1;j++) 
+				 if(a[j]>a[j+1]) {
+					 int temp=a[j];
+					 a[j]=a[j+1];
+					 a[j+1]=temp;
+				 }
+			 }
+	 //2.print array..
+	 static void print(int a[]) {
+		 int i;
+		 int n= a.length;
+		 for(i=0;i<n;i++)
+			 System.out.println(a[i]+ "");;
+			 System.out.println();
+	 }
+	 //3.driver method..
+	 public static void main(String[]args) {
+		 BubbleSort ob= new BubbleSort();
+		 int a[]= {12,56,43,23,32};
+		 ob.bubblesort(a);
+		 System.out.println("sorted array"
+		 ob.print(a);
+	 }
+		 }
+		 
+	 
+
+
+..........................
+package com.practice;
+import java.util.*;
+public class Hotel {
+	int table_no;
+	String ser_name;
+	int ser_id;
+	//generate constructor
+	public Hotel(int table_no, String ser_name, int ser_id) {
+		super();
+		this.table_no = table_no;
+		this.ser_name = ser_name;
+		this.ser_id = ser_id;
+	}
+
+   //generate getters and setters
+	public int getTable_no() {
+		return table_no;
+	}
+
+	public void setTable_no(int table_no) {
+		this.table_no = table_no;
+	}
+
+	public String getSer_name() {
+		return ser_name;
+	}
+
+	public void setSer_name(String ser_name) {
+		this.ser_name = ser_name;
+	}
+
+	public int getSer_id() {
+		return ser_id;
+	}
+
+	public void setSer_id(int ser_id) {
+		this.ser_id = ser_id;
+	}
+  //generate toString()
+	@Override
+	public String toString() {
+		return "Hotel [table_no=" + table_no + ", ser_name=" + ser_name + ", ser_id=" + ser_id + "]";
+	}
+   ///then print the result
+public static void main (String[]args) {
+		ArrayList<Hotel>mojo=new ArrayList<Hotel>();
+		
+		mojo.add(new Hotel(10,"hari",201));
+		mojo.add(new Hotel(11,"rajesh",202));
+		mojo.add(new Hotel(12,"quvin",203));
+		System.out.println(mojo);
+		System.out.println(mojo.size());
+		System.out.println(mojo);
+			
+	}
+	
+
+}
+.........................
+package com.practice;
+import java.util.*;
+public class Insertion { 
+
+    /*Function to sort array using insertion sort*/
+    void sort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+ 
+            /* Move elements of arr[0..i-1], that are
+               greater than key, to one position ahead
+               of their current position */
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+ 
+    /* A utility function to print array of size n*/
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+ 
+        System.out.println();
+    }
+ 
+    // Driver method
+    public static void main(String args[])
+    {
+        int arr[] = { 12, 11, 13, 5, 6 };
+ 
+        Insertion ob = new Insertion();
+        ob.sort(arr);
+ 
+        printArray(arr);
+    }
+}
+
+
+.......................
+package com.practice;
+import java.util.*;
+public class InsertionSort {
+	public static void InsertionSort(int a[]) {
+		int i,j;
+		int n=a.length;
+		for(i=1;i<n;i++) {
+			for(j=i;j>0;j--) {
+				if(a[j]>a[j-1]) {
+					int temp=a[j];
+					a[j]=a[j-1];
+					a[j-1]=temp;
+				}
+				else
+					break;
+			}
+		}
+	}
+	 static void print(int a[]) {
+		 int i;
+		 int n=a.length;
+		 for(i=0;i<n;i++)
+			 System.out.println(a[i]+ "");;
+			 System.out.println();
+	 }
+	 public static void main(String[]args) {
+		 InsertionSort ib= new InsertionSort();
+		 int a[]= {12,56,43,23,32};
+		 ib.InsertionSort(a);
+		 System.out.println("sorted array");
+		 ib.print(a);
+	 }
+
+}
+.....................
+package com.practice;
+import java.util.*;
+public class Optimised {
+	 static void bubblesort(int a[]) {
+		 int i,j;
+		 int n=a.length;
+		 boolean swapped;
+		 for(i=0;i<n-1;i++) {
+			 swapped=false;
+			 for(j=0;j<n-i-1;j++) {
+				 if(a[j]>a[j+1]) {
+					 int temp=a[j];
+					 a[j]=a[j+1];
+					 a[j+1]=temp;
+					 swapped=true;
+					 
+					 if(swapped==false)
+						 break;
+				 }
+			 }
+		 }
+	 }
+		 
+		 static void print(int a[]) {
+			 int i;
+			 int n= a.length;
+			 for(i=0;i<n;i++)
+				 System.out.println(a[i]+ "");;
+				 System.out.println();
+		 }
+		 public static void main(String[]args) {
+			 BubbleSort ob= new BubbleSort();
+			 int a[]= {10,11,14,15,16,19};
+			 ob.bubblesort(a);
+			 System.out.println("sorted array");
+			 ob.print(a);
+		 }
+
+}
+...........................
+package com.practice;
+import java.util.*;
+public class Prac_bfs {
+	private int V;
+	private LinkedList<Integer>adj[];
+	
+	Prac_bfs(int v){
+		V=v;
+		adj=new LinkedList[v];
+		for(int i=0;i<v;++i)
+			adj[i]=new LinkedList();
+	}
+	
+	void BFS(int n){
+		boolean visited[]=new boolean [V];
+		LinkedList<Integer>queue=new LinkedList();
+		visited[n]=true;
+		queue.add(n);
+		while(queue.size()!=0) {
+			n=queue.poll();
+			System.out.println(n + " ");
+			Iterator<Integer>i=adj[n].listIterator();
+			while(i.hasNext()) {
+				int num=i.next();
+				if(!visited[num]) {
+					visited[num]=true;
+					queue.add(num);
+					}
+				
+			}
+		}
+			
+	}
+	
+	void addEdg(int v, int v1) {
+		adj[v].add(v1);
+	}
+	public static void main(String[]args) {
+		Prac_bfs g=new Prac_bfs(4);
+		g.addEdg(0, 1);
+		g.addEdg(2, 1);
+		g.addEdg(2, 3);
+		g.addEdg(3, 3);
+		
+		System.out.println("BFS");
+		g.BFS(3);
+		
+	}
+
+}
+.........................
+package com.practice;
+import java.util.*;
+public class Q_linkedlist {
+	//creating class for Node
+ class Node{
+	 //declaring variables
+	 int data;
+	 Node next;
+	 //creating constructor for Node,enqueue,dequeue
+	 Node(int val){
+		 data=val;
+		 next=null;
+				
+	 }
+ }
+ Node front,rear;
+ 
+   Q_linkedlist(){
+	 front=null;
+	 rear=null;
+ }
+   
+ public void enqueue(int val) {
+	 Node newNode= new Node (val);
+	 if(front==null)
+		 front= newNode;
+	 else
+	 rear.next= newNode;
+	 rear=newNode;
+ }
+ public int dequeue() {
+	 if(front==null)
+		 throw new IndexOutOfBoundsException("Queue is empty");
+	 int temp=front.data;
+	 front=front.next;
+	 if(front==null)
+		 rear=null;
+	 return temp;
+	 
+ }
+ public boolean isEmpty() {
+	 return front==null;
+ }
+ public int elementAtFront() {
+	 if (front==null)
+		 throw new IndexOutOfBoundsException("Queue is empty");
+	 return front.data;
+ }
+ public static void main(String[]args) {
+	 Q_linkedlist q=new Q_linkedlist();
+	 
+	 q.enqueue(12);
+	 q.enqueue(14);
+	 q.enqueue(13);
+	 q.enqueue(11);
+	 
+	 System.out.println("dequeued "+ q.dequeue());
+	 System.out.println("dequeued "+ q.dequeue());
+	 System.out.println("dequeued "+ q.dequeue());
+	 
+	 q.enqueue(12);
+	 q.enqueue(14);
+	 q.enqueue(13);
+	 q.enqueue(11);
+	 
+	 System.out.println("dequeued "+ q.dequeue());
+	 System.out.println("dequeued "+ q.dequeue());
+	 System.out.println("dequeued "+ q.dequeue());
+	
+	 
+ }
+}
+....................................
+package com.practice;
+import java.util.*;
+public class Sh_complex {
+	
+	int count_no;
+	String fruits_name;
+	int price;
+	public Sh_complex(int count_no, String fruits_name, int price) {
+		super();
+		this.count_no = count_no;
+		this.fruits_name = fruits_name;
+		this.price = price;
+	}
+	public int getCount_no() {
+		return count_no;
+	}
+	public void setCount_no(int count_no) {
+		this.count_no = count_no;
+	}
+	public String getFruits_name() {
+		return fruits_name;
+	}
+	public void setFruits_name(String fruits_name) {
+		this.fruits_name = fruits_name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Sh_complex [count_no=" + count_no + ", fruits_name=" + fruits_name + ", price=" + price + "]";
+	}
+	public static void main(String[]args) {
+		LinkedList <Sh_complex> cart=new LinkedList <> ();
+		
+		cart.add(new Sh_complex(20,"mango",230));
+		
+		cart.add(new Sh_complex(21,"apple",330));
+		System.out.println(cart);
+	}
+	
+	
+}
+................................
+package com.practice;
+
+public class Stack {
+	//declaring variables
+	int s[]= new int [5];
+	int tos;
+	//creating conditions
+	Stack() {
+		    tos= -1;
+		}
+	void push(int item) {
+		if(tos==5) 
+			System.out.println("stack is full");
+		else
+		s[++tos]=item;
+		}
+	int pop() {
+		if(tos>=0)
+		return s[tos--];
+		else
+			System.out.println("stack is empty");
+		return-1;
+	}
+	public static void main(String[]args) {
+		Stack s1= new Stack();
+				s1.push(10);
+		        s1.push(12);
+		        s1.push(13);
+		        s1.push(17);
+		      
+		        System.out.println(s1.pop());
+	}
+
+}

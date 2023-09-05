@@ -1,0 +1,98 @@
+package com.graph;
+import java.util.*;
+public class BFS_example {
+	//global variables part..
+	private int V;
+	private  LinkedList<Integer>adj[];
+	
+	//now constructing..
+	 BFS_example(int v){ 
+	     V=v;
+		 adj=new LinkedList[v];
+		 for(int i=0;i<v;++i)
+			 adj[i]=new LinkedList();
+	 }
+	 
+	 //now creating function..
+	 void BFS(int n) {
+		 boolean visited[]=new boolean[V];
+		 LinkedList<Integer>queue=new LinkedList();
+		 visited[n]=true;
+		 queue.add(n);
+		 //looping..
+		 while (queue.size() !=0) {
+			 n= queue.poll();
+			 System.out.println(n +" ");	
+			 //again
+			 Iterator<Integer>i=adj[n].listIterator();
+	            while(i.hasNext()) {
+				 int num=i.next();
+				 if(!visited[num]) {
+					 visited[num]=true;
+					 queue.add(num);
+				 }
+			 }
+		 }
+	 }
+	
+	 ///adding edges..
+	 void addEdge(int v,int v1) {
+		 adj[v].add(v1);
+	 }
+	
+	 //now driving..
+	 public static void main(String[] args) {
+		 BFS_example graph=new BFS_example(4);
+		 graph.addEdge(0, 1);
+		 graph.addEdge(0, 2);
+		 graph.addEdge(1, 2);
+		 graph.addEdge(2, 0);
+		 graph.addEdge(2, 3);
+		 graph.addEdge(3, 3);
+		 
+		 System.out.println("BFS");
+		 graph.BFS(0);
+			
+	 }
+
+}
+.............................
+package com.graph;
+import java.util.*;
+public class DFS_example {
+	private LinkedList<Integer>adjLists[];
+	private boolean visited[];
+	///creating a graph..
+	DFS_example(int ver){
+		adjLists =new LinkedList[ver];
+		visited=new boolean [ver];
+		for(int i=0;i<ver;i++)
+			adjLists[i]=new LinkedList<Integer>();
+	}
+      ///adding edges..
+	void addEdge(int src, int dest) {
+		adjLists[src].add(dest);
+	}
+	///DFS algorithm..
+	void DFS(int ver) {
+		visited[ver]=true;
+		System.out.println(ver + " ");
+		Iterator<Integer>it=adjLists[ver].listIterator();
+		while(it.hasNext()) {
+			int adj=it.next();
+			if(! visited[adj])
+				DFS(adj);	
+		}
+	}
+	//driving method..
+	public static void main(String[]args) {
+		DFS_example g=new DFS_example(4);
+		g.addEdge(0, 1);
+		g.addEdge(0, 2);
+		g.addEdge(1, 2);
+		g.addEdge(2, 3);
+		System.out.println("DFS");
+		g.DFS(2);
+		
+	}
+}

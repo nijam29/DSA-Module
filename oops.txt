@@ -1,0 +1,113 @@
+package assignments;
+import java.util.*;
+public class Bycycle {
+	public int gear;
+	public int speed;
+	
+	public Bycycle(int gear, int speed) {
+		super();
+		this.gear = gear;
+		this.speed = speed;
+	}
+	public void applybreak(int decrement){
+	    speed -= decrement;
+	}
+	public void accelerate(int increment) {
+		speed += increment;
+	}
+	@Override
+	public String toString() {
+		return ("no of gears" + gear + "speed rate is" + speed);
+		}
+	
+	}
+...........................
+package assignments;
+import java.util.*;
+public class check {
+	int num;
+	public static void tj(int num) {
+		if(num%2 == 0) {
+			System.out.println("Jerry");
+		}
+		else if(num>30) {
+			System.out.println("Number is not valid");
+			
+		}
+			else {
+				System.out.println("Tom");
+			}
+		
+		}
+	public static void main(String[]args) {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter an integer:");
+		int num = sc.nextInt();
+		tj(num);
+		
+	}
+
+}
+.....................
+package assignments;
+import java.util.*;
+public class Motorbike extends Bycycle {
+	public int seatheight;
+	public Motorbike(int gear, int speed, int height ) {
+		super(gear,speed);
+		seatheight= height;
+	}
+	public void height(int newValue){
+		seatheight=newValue;
+		
+	}
+	@Override
+	public String toString() {
+		return (super.toString() + "seat height is" + seatheight);
+	}
+	
+
+public static void main(String[]args) {
+	Motorbike mb=new Motorbike(4,100,45);
+	System.out.println(mb.toString());
+}
+	
+}
+........................
+package assignments;
+import java.util.*;
+public class pali_check {
+	public static void main(String [] args){
+		System.out.println("Enter the values:");
+		Scanner input= new Scanner(System.in);
+		int n = input.nextInt();
+		int temp;
+		temp=n;
+		
+		int d = 0;
+		int sum=0;
+		while (n>0) {
+			d=n % 10;
+			if (d%2==0)	{
+			sum=sum+d;
+			}
+			n=n/10;
+		}
+		if(temp==sum) 
+			System.out.println("Entered value is  palindrome");
+			else 
+				System.out.println("Entered value is not palindrome");
+		
+			System.out.println(sum);
+		 if(sum>25) 
+			System.out.println("sum of the even number is greater than 25");
+			else 
+				System.out.println("sum of the even number is less than 25");
+				}
+		}
+		
+	
+	
+	
+
+

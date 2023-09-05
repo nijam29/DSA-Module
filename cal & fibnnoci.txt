@@ -1,0 +1,70 @@
+package com.cal;
+import java.util.Scanner;
+public class Calculator {
+	public static void main(String[]args) {
+		Scanner read= new Scanner(System.in);
+		System.out.println("Enter two numbers");
+		double first=  read.nextDouble();
+		double second= read.nextDouble();
+		System.out.println("Enter an operators(+,-,*,/):");
+		char operator= read.next().charAt(0);
+		double result;
+		
+		switch(operator) {
+		case'+':
+			result=first+second;
+		case'-':
+			result=first-second;
+		case'*':
+			result=first*second;
+		case'/':
+			result=first/second;
+		break;
+		default:
+			System.out.println("Error, cannot find the operator");
+		return;
+		}
+		System.out.printf("%.1f %c %.1f=%.1f", first,operator,second,result);
+		
+	}
+	
+
+}
+.....................................................
+
+package com.cal;
+
+public class Fibnnoci {
+	  // Function to print N FibNumber
+	    static void Fibonacci(int N)
+	    {
+	        int num1 = 0, num2 = 1;
+	 
+	        int counter = 0;
+	 
+	        // Iterate till counter is N
+	        while (counter < N) {
+	 
+	            // Print the number
+	            System.out.print(num1 + " ");
+	 
+	            // Swap
+	            int num3 = num2 + num1;
+	            num1 = num2;
+	            num2 = num3;
+	            counter = counter + 1;
+	        }
+	    }
+	 
+	    // Driver Code
+	    public static void main(String args[])
+	    {
+	        // Given Number N
+	        int N = 20;
+	 
+	        // Function Call
+	        Fibonacci(N);
+	    }
+	}
+
+
